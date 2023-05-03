@@ -77,7 +77,7 @@ namespace XamarinFirebaseApp.Views
                 }
                 else
                 {
-                    await DisplayAlert("Error", exception.Message, "Ok");
+                    await DisplayAlert("Exito", "Cuenta creada correctamente" , "Ok");
                 }
                 
             }

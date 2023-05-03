@@ -52,6 +52,7 @@ namespace XamarinFirebaseApp.Views
                 if (!string.IsNullOrEmpty(token))
                 {
                     Preferences.Set("token", token);
+                    Preferences.Set("userPassword", password);
                     Preferences.Set("userEmail", email);
                     await Navigation.PushAsync(new HomePage());
                 }
@@ -80,12 +81,12 @@ namespace XamarinFirebaseApp.Views
 
         private async void RegisterTap_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new RegisterUser());
+            await Navigation.PushAsync(new RegisterUser());
         }
 
         private async void ForgotTap_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new ForgotPasswordPage());
+            await Navigation.PushAsync(new ForgotPasswordPage());
         }
     }
 }

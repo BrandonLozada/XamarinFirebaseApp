@@ -3,23 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinFirebaseApp.Views.HomePage" NavigationPage.HasBackButton="False">
     <ContentPage.Content>
-        <StackLayout Padding="16">
-            <Label Text="Home Page"
+        <StackLayout>
+            <BoxView Color="red"
+              HeightRequest="80"
+              Margin="0,0,0,20"></BoxView>
+            <Label Text="Bienvenido"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center"
-                   FontSize="Large"/>
-            <Label Text="" x:Name="LblUser"
                    FontSize="Large"
-                   VerticalOptions="Center"></Label>
+                   TextColor="Black"/>
+            <Image Source="verificacion.png"
+                   WidthRequest="100"
+                   HeightRequest="100"/>
             <Button Text="Student List"
                     x:Name="BtnStudentList"
-                    Clicked="BtnStudentList_Clicked"></Button>
-            <Button Text="Change Password" x:Name="BtnChangePassword" Clicked="BtnChangePassword_Clicked"></Button>
+                    Clicked="BtnStudentList_Clicked"
+                    Margin="40,30,40,10" />
+            <BoxView HeightRequest="150"/>
+            <Button Text="Cambiar Contraseña de la cuenta" 
+                    x:Name="BtnChangePassword"                   
+                    Clicked="BtnChangePassword_Clicked"
+                    Margin="40,30,40,0"
+                    BackgroundColor="black"
+                    TextColor="White"></Button>
             <Button x:Name="Logout"
                     Text="Cerrar Sesión"
-                    BackgroundColor="Black"
-                    TextColor="white"
-                    Clicked="Logout_Clicked"/>
+                    TextColor="Black"
+                    Clicked="Logout_Clicked"
+                    Margin="40,30,40,0"
+                    CornerRadius="0"
+                    BackgroundColor="white"
+                    BorderWidth="1"
+                    BorderColor="black"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

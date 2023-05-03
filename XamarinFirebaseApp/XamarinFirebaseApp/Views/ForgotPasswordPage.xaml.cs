@@ -31,7 +31,7 @@ namespace XamarinFirebaseApp.Views
             if(isSend)
             {
                 await DisplayAlert("Reset Password", "Send link in your email.", "Ok");
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
             }
             else
             {

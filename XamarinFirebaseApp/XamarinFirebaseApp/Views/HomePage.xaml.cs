@@ -16,7 +16,7 @@ namespace XamarinFirebaseApp.Views
         public HomePage()
         {
             InitializeComponent();
-            LblUser.Text = Preferences.Get("userEmail", "default");
+            //LblUser.Text = Preferences.Get("userEmail", "default");
         }
 
         private void BtnStudentList_Clicked(object sender, EventArgs e)
