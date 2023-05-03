@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinFirebaseApp.Views.HomePage" NavigationPage.HasBackButton="False">
+             x:Class="XamarinFirebaseApp.Views.HomePage" NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
         <StackLayout>
-            <BoxView Color="red"
+            <BoxView Color="#831111"
               HeightRequest="80"
               Margin="0,0,0,20"></BoxView>
             <Label Text="Bienvenido"
@@ -15,10 +16,18 @@
             <Image Source="verificacion.png"
                    WidthRequest="100"
                    HeightRequest="100"/>
+            <!-- Visible - False - Students -->
             <Button Text="Student List"
                     x:Name="BtnStudentList"
                     Clicked="BtnStudentList_Clicked"
-                    Margin="40,30,40,10" />
+                    Margin="40,10,40,0"
+                    IsVisible="false"/>
+            <Button Text="Productos"
+                    x:Name="BtnProductList"
+                    Clicked="BtnProductsList_Clicked"
+                    Margin="40,40,40,0"
+                    BackgroundColor="#831111"
+                    TextColor="white"/>
             <BoxView HeightRequest="150"/>
             <Button Text="Cambiar Contraseña de la cuenta" 
                     x:Name="BtnChangePassword"                   

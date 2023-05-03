@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinFirebaseApp.Views.Student.StudentListPage"
+             x:Class="XamarinFirebaseApp.Views.Producto.ProductListPage"
              Title="Lista de Productos">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Agregar"
@@ -15,10 +15,10 @@
                        TextChanged="TxtSearch_TextChanged"
                        SearchButtonPressed="TxtSearch_SearchButtonPressed"
                        Margin="0,15,0,30"></SearchBar>
-            <ListView x:Name="StudentListView" 
-                  ItemsSource="{Binding students}"
+            <ListView x:Name="ProductListView" 
+                  ItemsSource="{Binding products}"
                   HasUnevenRows="True"
-                  ItemTapped="StudentListView_ItemTapped"                  
+                  ItemTapped="ProductListView_ItemTapped"                  
                   IsRefreshing="True"
                   IsPullToRefreshEnabled="True"
                   >
@@ -62,9 +62,14 @@
                                     </Frame>
 
                                     <StackLayout HorizontalOptions="StartAndExpand">
-                                        <Label Text="{Binding Name}" FontSize="Medium" TextColor="black"/>
-                                        <Label Text="{Binding Email}"
-                                               TextColor="Gray"/>
+                                        <Label Text="{Binding Nombre}" FontSize="Medium" TextColor="black"/>
+                                        <Grid>
+                                            <Grid.RowDefinitions >
+                                                <RowDefinition Height="0"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                        <Label Text="Cantidad:" Grid.Row="1"/>
+                                        <Label Text="{Binding Cantidad}" Margin="70,0,0,0" Grid.Row="1"  FontSize="Small" TextColor="Gray"/>
+                                        </Grid>
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">
                                         <Image Source="edit.png"
@@ -89,12 +94,11 @@
                                     </StackLayout>
                                 </StackLayout>
                             </SwipeView>
-                           
+
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

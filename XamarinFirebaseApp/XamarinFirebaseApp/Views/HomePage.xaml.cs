@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinFirebaseApp.Views.Producto;
 using XamarinFirebaseApp.Views.Student;
 
 namespace XamarinFirebaseApp.Views
@@ -22,6 +23,12 @@ namespace XamarinFirebaseApp.Views
         private void BtnStudentList_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new StudentListPage());
+        }
+
+
+        private void BtnProductsList_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ProductListPage());
         }
 
         private void BtnChangePassword_Clicked(object sender, EventArgs e)
