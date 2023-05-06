@@ -20,23 +20,40 @@ namespace XamarinFirebaseApp.Views
 
         private async void ButtonSendLink_Clicked(object sender, EventArgs e)
         {
-            string email = TxtEmail.Text;
-            if(string.IsNullOrEmpty(email))
+            try
             {
-                await DisplayAlert("Warning", "Please enter your email.", "Ok");
-                return;
-            }
+                string email = TxtEmail.Text;
+                if (string.IsNullOrEmpty(email))
+                {
+                    await DisplayAlert("Advertencia", "Ingresa tu Email", "Ok");
+                    return;
+                }
 
-            bool isSend =await _userRepository.ResetPassword(email);
-            if(isSend)
-            {
-                await DisplayAlert("Reset Password", "Send link in your email.", "Ok");
-                await Navigation.PopAsync();
+                bool isSend = await _userRepository.ResetPassword(email);
+                if (isSend)
+                {
+                    await DisplayAlert("Email Enviado", "Se ha enviado un correo a tu Email", "Ok");
+                    await Navigation.PopAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Advertencia", "El Link no se ha enviado", "Ok");
+                }
             }
-            else
+            catch (Exception exception)
             {
-                await DisplayAlert("Reset Password", "Link send failed.", "Ok");
+                if (exception.Message.Contains("INVALID_EMAIL"))
+                {
+                    await DisplayAlert("Advertencia", "Email Invalido, ingresa un email existente", "Ok");
+                } 
+                else
+                {
+                    await DisplayAlert("Advertencia", "El email no existe", "Ok");
+
+                }
             }
+                
+            
         }
     }
 }

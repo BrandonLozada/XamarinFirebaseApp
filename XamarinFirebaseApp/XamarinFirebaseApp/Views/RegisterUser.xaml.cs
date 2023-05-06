@@ -29,51 +29,51 @@ namespace XamarinFirebaseApp.Views
                 string confirmPassword = TxtConfirmPass.Text;
                 if (String.IsNullOrEmpty(name))
                 {
-                    await DisplayAlert("Warning", "Type name", "Ok");
+                    await DisplayAlert("Advertencia", "Ingresa tu Nombre de Usuario", "Ok");
                     return;
                 }
-                if (String.IsNullOrEmpty(email))
+                else if (String.IsNullOrEmpty(email))
                 {
-                    await DisplayAlert("Warning", "Type email", "Ok");
+                    await DisplayAlert("Advertencia", "Ingresa tu Email", "Ok");
                     return;
                 }
-                if (password.Length<6)
+                else if (String.IsNullOrEmpty(password))
                 {
-                    await DisplayAlert("Warning", "Password should be 6 digit.", "Ok");
+                    await DisplayAlert("Advertencia", "Ingresa tu Contraseña", "Ok");
                     return;
                 }
-                if (String.IsNullOrEmpty(password))
+                else if (password.Length<6)
                 {
-                    await DisplayAlert("Warning", "Type password", "Ok");
+                    await DisplayAlert("Advertencia", "La contraseña debe de ser mayor a 6 Digitos", "Ok");
                     return;
                 }
-                if (String.IsNullOrEmpty(confirmPassword))
+                else if (String.IsNullOrEmpty(confirmPassword))
                 {
-                    await DisplayAlert("Warning", "Type Confirm password", "Ok");
+                    await DisplayAlert("Advertencia", "Ingresa tu Confirmación Contraseña", "Ok");
                     return;
                 }
-                if (password != confirmPassword)
+                else if (password != confirmPassword)
                 {
-                    await DisplayAlert("Warning", "Password not match.", "Ok");
+                    await DisplayAlert("Advertencia", "Las contraseñas no coinciden", "Ok");
                     return;
                 }
 
                 bool isSave = await _userRepository.Register(email, name, password);
                 if (isSave)
                 {
-                    await DisplayAlert("Register user", "Registration completed", "Ok");
+                    await DisplayAlert("Usuario Registrado", "El registro ha sido un exito", "Ok");
                     await Navigation.PopModalAsync();
                 }
                 else
                 {
-                    await DisplayAlert("Register user", "Registration failed", "Ok");
+                    await DisplayAlert("Advertencia", "Registro incorrecto", "Ok");
                 }
             }
             catch(Exception exception)
             {
                if(exception.Message.Contains("EMAIL_EXISTS"))
                 {
-                   await DisplayAlert("Warning", "Email exist", "Ok");
+                   await DisplayAlert("Advertencia", "El Email ya existe, Ingresa otro distinto", "Ok");
                 }
                 else
                 {

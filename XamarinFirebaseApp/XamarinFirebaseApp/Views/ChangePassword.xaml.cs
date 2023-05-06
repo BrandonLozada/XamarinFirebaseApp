@@ -26,31 +26,31 @@ namespace XamarinFirebaseApp.Views
                 string confirmPass = TxtConfirm.Text;
                 if(string.IsNullOrEmpty(password))
                 {
-                   await DisplayAlert("Change Password", "Please type password","Ok");
+                   await DisplayAlert("Advertencia", "Ingresa tu nueva contraseña","Ok");
                     return;
                 }
                 if (string.IsNullOrEmpty(confirmPass))
                 {
-                  await  DisplayAlert("Change Password", "Please type confirm password", "Ok");
+                  await  DisplayAlert("Advertencia", "Por favor, confirme su contraseña", "Ok");
                     return;
                 }
                 if(password!=confirmPass)
                 {
-                    await DisplayAlert("Change Password", "Confirm password not match.", "Ok");
+                    await DisplayAlert("Advertencia", "Las Contraseñas no coinciden", "Ok");
                     return;
                 }
                 string token = Preferences.Get("token","");
                 string newToken =await _userRepository.ChangePassword(token, password);
                 if(!string.IsNullOrEmpty(newToken))
                 {
-                    await DisplayAlert("Change Password", "Password has been changed.", "Ok");
+                    await DisplayAlert("Exito", "La contraseña se ha cambiado", "Ok");
                     Preferences.Set("token", newToken);
                     //Preferences.Clear();
                     //await Navigation.PushAsync(new LoginPage());
                 }
                 else
                 {
-                    await DisplayAlert("Change Password", "Password Change failed.", "Ok");
+                    await DisplayAlert("Advertencia", "Cambio de contraseña fallido", "Ok");
                 }
             }
             catch(Exception exception)

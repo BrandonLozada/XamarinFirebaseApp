@@ -4,7 +4,7 @@
              x:Class="XamarinFirebaseApp.Views.Producto.ProductEdit">
     <ContentPage.Content>
         <StackLayout Padding="15" VerticalOptions="CenterAndExpand">
-            <Label Text="Student Update" 
+            <Label Text="Editar Producto" 
                 HorizontalOptions="Center"
                   FontSize="Large"/>
             <Image x:Name="StudentImage"
@@ -21,9 +21,9 @@
                    IsVisible="false"/>
 
             <Entry x:Name="TxtName"
-                   Placeholder="Enter your name"/>
+                   Placeholder="Escribe el nombre del Producto"/>
             <Entry x:Name="TxtCantidad"
-                   Placeholder="Enter your email"
+                   Placeholder="Escribe la cantidad"
                   />
             <Button Text="Update"
                     x:Name="ButtonUpdate"

@@ -40,12 +40,12 @@ namespace XamarinFirebaseApp.Views
                 string password = TxtPassword.Text;
                 if (String.IsNullOrEmpty(email))
                 {
-                    await DisplayAlert("Warning", "Enter your email", "Ok");
+                    await DisplayAlert("Advertencia", "Ingresa tu Email", "Ok");
                     return;
                 }
                 if (String.IsNullOrEmpty(password))
                 {
-                    await DisplayAlert("Warning", "Enter your password", "Ok");
+                    await DisplayAlert("Advertencia", "Ingresa tu Contraseña", "Ok");
                     return;
                 }
                 string token = await _userRepository.SignIn(email, password);
@@ -58,18 +58,22 @@ namespace XamarinFirebaseApp.Views
                 }
                 else
                 {
-                    await DisplayAlert("Sign In", "Sign in failed", "ok");
+                    await DisplayAlert("Advertencia", "Inicio de sesión fallido", "ok");
                 }
             }
             catch(Exception exception)
             {
-                if(exception.Message.Contains("EMAIL_NOT_FOUND"))
+                if(exception.Message.Contains("INVALID_EMAIL"))
                 {
-                    await DisplayAlert("Unauthorized", "Email not found", "ok");
+                    await DisplayAlert("Advertencia", "Email no encontrado", "ok");
+                }
+                else if (exception.Message.Contains("EMAIL_NOT_FOUND"))
+                {
+                    await DisplayAlert("Advertencia", "Email no encontrado", "ok");
                 }
                 else if(exception.Message.Contains("INVALID_PASSWORD"))
                 {
-                    await DisplayAlert("Unauthorized", "Password incorrect", "ok");
+                    await DisplayAlert("Advertencia", "Contraseña incorrecta", "ok");
                 }
                 else
                 {

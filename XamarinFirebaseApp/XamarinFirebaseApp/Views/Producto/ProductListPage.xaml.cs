@@ -56,19 +56,19 @@ namespace XamarinFirebaseApp.Views.Producto
         private async void DeleteTapp_Tapped(object sender, EventArgs e)
         {
 
-            var response = await DisplayAlert("Delete", "Do you want to delete?", "Yes", "No");
+            var response = await DisplayAlert("Advertencia", "¿Quieres eliminar este Producto?", "Yes", "No");
             if (response)
             {
                 string id = ((TappedEventArgs)e).Parameter.ToString();
                 bool isDelete = await productRepository.Delete(id);
                 if (isDelete)
                 {
-                    await DisplayAlert("Information", "Student has been deleted.", "Ok");
+                    await DisplayAlert("Advertencia", "El Producto ha sido eliminado", "Ok");
                     OnAppearing();
                 }
                 else
                 {
-                    await DisplayAlert("Error", "Student deleted failed.", "Ok");
+                    await DisplayAlert("Error", "No se eliminó el Producto", "Ok");
                 }
             }
         }

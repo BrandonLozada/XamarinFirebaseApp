@@ -33,11 +33,11 @@ namespace XamarinFirebaseApp.Views.Producto
             string cantidad = TxtCantidad.Text;
             if (string.IsNullOrEmpty(name))
             {
-                await DisplayAlert("Warning", "Please enter your name", "Cancel");
+                await DisplayAlert("Advertencia", "Por favor ingresa el Nombre del Producto", "Cancel");
             }
             if (string.IsNullOrEmpty(cantidad))
             {
-                await DisplayAlert("Warning", "Please enter your email", "Cancel");
+                await DisplayAlert("Advertencia", "Por favor ingresa la Cantidad del Producto", "Cancel");
             }
 
             ProductoModel product = new ProductoModel();

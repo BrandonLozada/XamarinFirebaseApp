@@ -24,11 +24,11 @@ namespace XamarinFirebaseApp.Views.Producto
             string cantidad = TxtCantidad.Text;
             if (string.IsNullOrEmpty(name))
             {
-                await DisplayAlert("Warning", "Please enter your name", "Cancel");
+                await DisplayAlert("Advertencia", "Por favor ingresa el Nombre del Producto", "Cancel");
             }
             if (string.IsNullOrEmpty(cantidad))
             {
-                await DisplayAlert("Warning", "Please enter your email", "Cancel");
+                await DisplayAlert("Advertencia", "Por favor ingresa la Cantidad del Producto", "Cancel");
             }
             else
             {
@@ -39,12 +39,12 @@ namespace XamarinFirebaseApp.Views.Producto
                 var isSaved = await repository.Save(producto);
                 if (isSaved)
                 {
-                    await DisplayAlert("Information", "Student has been saved.", "Ok");
+                    await DisplayAlert("Exito", "Producto añadido", "Ok");
                     Clear();
                 }
                 else
                 {
-                    await DisplayAlert("Error", "Student saved failed.", "Ok");
+                    await DisplayAlert("Error", "No se guardó el Producto", "Ok");
                 }
             }
             
