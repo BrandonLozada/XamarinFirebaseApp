@@ -31,7 +31,9 @@ namespace XamarinFirebaseApp
                 Nombre = item.Object.Nombre,
                 Cantidad = item.Object.Cantidad,
                 Image = item.Object.Image,
-                Id = item.Key
+                Id = item.Key,
+                Marca = item.Object.Marca,
+                Descripcion = item.Object.Descripcion
             }).ToList();
         }
 
@@ -42,7 +44,9 @@ namespace XamarinFirebaseApp
                 Nombre = item.Object.Nombre,
                 Cantidad = item.Object.Cantidad,
                 Image = item.Object.Image,
-                Id = item.Key
+                Id = item.Key,
+                Marca = item.Object.Marca,
+                Descripcion = item.Object.Descripcion
             }).Where(c => c.Nombre.ToLower().Contains(name.ToLower())).ToList();
         }
 

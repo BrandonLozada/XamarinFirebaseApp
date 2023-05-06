@@ -22,19 +22,31 @@ namespace XamarinFirebaseApp.Views.Producto
         {
             string name = TxtName.Text;
             string cantidad = TxtCantidad.Text;
+            string marca = TxtMarca.Text;
+            string descripcion = TxtDescripcion.Text;
             if (string.IsNullOrEmpty(name))
             {
-                await DisplayAlert("Advertencia", "Por favor ingresa el Nombre del Producto", "Cancel");
+                await DisplayAlert("Advertencia", "Por favor ingresa el Nombre del Producto", "Ok");
             }
-            if (string.IsNullOrEmpty(cantidad))
+            else if (string.IsNullOrEmpty(cantidad))
             {
-                await DisplayAlert("Advertencia", "Por favor ingresa la Cantidad del Producto", "Cancel");
+                await DisplayAlert("Advertencia", "Por favor ingresa la Cantidad del Producto", "Ok");
+            }
+            else if (string.IsNullOrEmpty(marca))
+            {
+                await DisplayAlert("Advertencia", "Por favor ingresa la Marca del Producto", "Ok");
+            }
+            else if (string.IsNullOrEmpty(descripcion))
+            {
+                await DisplayAlert("Advertencia", "Por favor ingresa la Descripción del Producto", "Ok");
             }
             else
             {
                 ProductoModel producto = new ProductoModel();
                 producto.Nombre = name;
                 producto.Cantidad = cantidad;
+                producto.Marca = marca;
+                producto.Descripcion = descripcion;
 
                 var isSaved = await repository.Save(producto);
                 if (isSaved)
@@ -55,6 +67,8 @@ namespace XamarinFirebaseApp.Views.Producto
         {
             TxtName.Text = string.Empty;
             TxtCantidad.Text = string.Empty;
+            TxtMarca.Text = string.Empty;
+            TxtDescripcion.Text = string.Empty;
         }
     }
 }

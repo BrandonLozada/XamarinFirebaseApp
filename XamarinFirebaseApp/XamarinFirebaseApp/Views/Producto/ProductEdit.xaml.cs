@@ -25,12 +25,16 @@ namespace XamarinFirebaseApp.Views.Producto
             TxtName.Text = product.Nombre;
             TxtCantidad.Text = product.Cantidad;
             TxtId.Text = product.Id;
+            TxtMarca.Text = product.Marca;
+            TxtDescripcion.Text = product.Descripcion;
         }
 
         private async void ButtonUpdate_Clicked(object sender, EventArgs e)
         {
             string name = TxtName.Text;
             string cantidad = TxtCantidad.Text;
+            string marca = TxtMarca.Text;
+            string descripcion = TxtDescripcion.Text;
             if (string.IsNullOrEmpty(name))
             {
                 await DisplayAlert("Advertencia", "Por favor ingresa el Nombre del Producto", "Cancel");
@@ -39,11 +43,21 @@ namespace XamarinFirebaseApp.Views.Producto
             {
                 await DisplayAlert("Advertencia", "Por favor ingresa la Cantidad del Producto", "Cancel");
             }
+            if (string.IsNullOrEmpty(marca))
+            {
+                await DisplayAlert("Advertencia", "Por favor ingresa la Marca del Producto", "Cancel");
+            }
+            if (string.IsNullOrEmpty(descripcion))
+            {
+                await DisplayAlert("Advertencia", "Por favor ingresa la Descripción del Producto", "Cancel");
+            }
 
             ProductoModel product = new ProductoModel();
             product.Id = TxtId.Text;
             product.Nombre = name;
             product.Cantidad = cantidad;
+            product.Marca = marca;
+            product.Descripcion = descripcion;
             if (file != null)
             {
                 string image = await productRepository.Upload(file.GetStream(), Path.GetFileName(file.Path));
@@ -52,11 +66,11 @@ namespace XamarinFirebaseApp.Views.Producto
             bool isUpdated = await productRepository.Update(product);
             if (isUpdated)
             {
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
             }
             else
             {
-                await DisplayAlert("Error", "Update failed.", "Cancel");
+                await DisplayAlert("Error", "Actualización Fallida", "Cancel");
             }
 
         }

@@ -18,6 +18,8 @@ namespace XamarinFirebaseApp.Views.Producto
 
             LabelName.Text = producto.Nombre;
             LabelCantidad.Text = producto.Cantidad;
+            LabelMarca.Text = producto.Marca;
+            LabelDescripcion.Text = producto.Descripcion;
         }
     }
 }

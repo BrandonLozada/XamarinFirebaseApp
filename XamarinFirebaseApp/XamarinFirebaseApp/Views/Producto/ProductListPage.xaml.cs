@@ -36,7 +36,7 @@ namespace XamarinFirebaseApp.Views.Producto
 
         private void AddToolBarItem_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new ProductEntry());
+            Navigation.PushAsync(new ProductEntry());
         }
 
         private void ProductListView_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -46,7 +46,7 @@ namespace XamarinFirebaseApp.Views.Producto
                 return;
             }
             var prodct = e.Item as ProductoModel;
-            Navigation.PushModalAsync(new ProductDetails(prodct));
+            Navigation.PushAsync(new ProductDetails(prodct));
             ((ListView)sender).SelectedItem = null;
 
         }
@@ -81,10 +81,10 @@ namespace XamarinFirebaseApp.Views.Producto
             var product = await productRepository.GetById(id);
             if (product == null)
             {
-                await DisplayAlert("Warning", "Data not found.", "Ok");
+                await DisplayAlert("Advertencia", "Datos no encontrados", "Ok");
             }
             product.Id = id;
-            await Navigation.PushModalAsync(new ProductEdit(product));
+            await Navigation.PushAsync(new ProductEdit(product));
 
         }
 
@@ -124,7 +124,7 @@ namespace XamarinFirebaseApp.Views.Producto
             var product = await productRepository.GetById(id);
             if (product == null)
             {
-                await DisplayAlert("Warning", "Data not found.", "Ok");
+                await DisplayAlert("Advertencia", "Datos no encontrados", "Ok");
             }
             product.Id = id;
             await Navigation.PushModalAsync(new ProductEdit(product));
@@ -132,19 +132,19 @@ namespace XamarinFirebaseApp.Views.Producto
 
         private async void DeleteMenuItem_Clicked(object sender, EventArgs e)
         {
-            var response = await DisplayAlert("Delete", "Do you want to delete?", "Yes", "No");
+            var response = await DisplayAlert("Advertencia", "¿Quiere eliminar este producto?", "Yes", "No");
             if (response)
             {
                 string id = ((MenuItem)sender).CommandParameter.ToString();
                 bool isDelete = await productRepository.Delete(id);
                 if (isDelete)
                 {
-                    await DisplayAlert("Information", "Student has been deleted.", "Ok");
+                    await DisplayAlert("Advertencia", "El producto ha sido eliminado", "Ok");
                     OnAppearing();
                 }
                 else
                 {
-                    await DisplayAlert("Error", "Student deleted failed.", "Ok");
+                    await DisplayAlert("Error", "Error, producto no eliminado", "Ok");
                 }
             }
         }
