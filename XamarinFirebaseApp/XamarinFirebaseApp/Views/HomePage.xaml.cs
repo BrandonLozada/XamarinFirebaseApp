@@ -31,6 +31,11 @@ namespace XamarinFirebaseApp.Views
             Navigation.PushAsync(new ProductListPage());
         }
 
+        private void BtnProveedorList_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ProveedorListPage());
+        }
+
         private void BtnChangePassword_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new ChangePassword());

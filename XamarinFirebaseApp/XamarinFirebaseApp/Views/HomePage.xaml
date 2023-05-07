@@ -28,6 +28,12 @@
                     Margin="40,40,40,0"
                     BackgroundColor="#831111"
                     TextColor="white"/>
+            <Button Text="Proveedores"
+                    x:Name="BtnProveedorList"
+                    Clicked="BtnProveedorList_Clicked"
+                    Margin="40,40,40,0"
+                    BackgroundColor="#833111"
+                    TextColor="white"/>
             <BoxView HeightRequest="150"/>
             <Button Text="Cambiar Contraseña de la cuenta" 
                     x:Name="BtnChangePassword"                   

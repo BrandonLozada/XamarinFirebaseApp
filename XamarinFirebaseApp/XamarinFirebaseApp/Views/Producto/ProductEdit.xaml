@@ -73,8 +73,6 @@
                     BorderWidth="1"
                     BorderColor="black"
                     Margin="0,25,0,0"/>
-
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
