@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinFirebaseApp.Views.Producto;
 using XamarinFirebaseApp.Views.Student;
+using XamarinFirebaseApp.Views.Proveedor;
 
 namespace XamarinFirebaseApp.Views
 {

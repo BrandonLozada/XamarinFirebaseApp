@@ -38,18 +38,22 @@ namespace XamarinFirebaseApp.Views.Producto
             if (string.IsNullOrEmpty(name))
             {
                 await DisplayAlert("Advertencia", "Por favor ingresa el Nombre del Producto", "Cancel");
+                return;
             }
-            if (string.IsNullOrEmpty(cantidad))
+            else if (string.IsNullOrEmpty(cantidad))
             {
                 await DisplayAlert("Advertencia", "Por favor ingresa la Cantidad del Producto", "Cancel");
+                return;
             }
-            if (string.IsNullOrEmpty(marca))
+            else if (string.IsNullOrEmpty(marca))
             {
                 await DisplayAlert("Advertencia", "Por favor ingresa la Marca del Producto", "Cancel");
+                return;
             }
-            if (string.IsNullOrEmpty(descripcion))
+            else if (string.IsNullOrEmpty(descripcion))
             {
                 await DisplayAlert("Advertencia", "Por favor ingresa la Descripción del Producto", "Cancel");
+                return;
             }
 
             ProductoModel product = new ProductoModel();

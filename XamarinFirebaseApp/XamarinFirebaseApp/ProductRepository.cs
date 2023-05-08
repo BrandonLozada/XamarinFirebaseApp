@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace XamarinFirebaseApp
 {
-    class ProductRepository
+    public class ProductRepository
     {
         FirebaseClient firebaseClient = new FirebaseClient("https://xamarinlogin-c9677-default-rtdb.firebaseio.com/");
         FirebaseStorage firebaseStorage = new FirebaseStorage("xamarinlogin-c9677.appspot.com");

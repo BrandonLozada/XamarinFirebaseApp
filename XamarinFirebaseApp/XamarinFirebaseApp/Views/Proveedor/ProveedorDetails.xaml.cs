@@ -12,9 +12,16 @@ namespace XamarinFirebaseApp.Views.Proveedor
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProveedorDetails : ContentPage
     {
-        public ProveedorDetails()
+
+        public ProveedorDetails(ProveedorModel prov)
         {
             InitializeComponent();
+
+            LabelName.Text = prov.Nombre;
+            LabelDireccion.Text = prov.Direccion;
+            LabelTelefono.Text = prov.Telefono;
+            LabelGiro.Text = prov.Giro;
+            LabelEmail.Text = prov.EmailProveedor;
         }
     }
 }
