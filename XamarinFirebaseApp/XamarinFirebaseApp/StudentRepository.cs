@@ -12,9 +12,9 @@ namespace XamarinFirebaseApp
 {
     public class StudentRepository
     {
-       
-        FirebaseClient firebaseClient = new FirebaseClient("https://xamarinlogin-c9677-default-rtdb.firebaseio.com/");
-        FirebaseStorage firebaseStorage = new FirebaseStorage("xamarinlogin-c9677.appspot.com");
+        FirebaseClient firebaseClient = new FirebaseClient("https://reci-pie-default-rtdb.firebaseio.com/");
+        FirebaseStorage firebaseStorage = new FirebaseStorage("reci-pie.appspot.com");
+
         public async Task<bool> Save(StudentModel student)
         {
            var data=await firebaseClient.Child(nameof(StudentModel)).PostAsync(JsonConvert.SerializeObject(student));

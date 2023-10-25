@@ -8,7 +8,7 @@ namespace XamarinFirebaseApp
 {
     public class UserRepository
     {
-        string webAPIKey = "AIzaSyAI3c2yGoqPX9JTUV1QV_GJw16suIA_wl4";
+        string webAPIKey = "AIzaSyDXEeOSCi6TJOjC2UWE52v9RiL97VVOaz8";
         FirebaseAuthProvider authProvider;
         
         public UserRepository()
